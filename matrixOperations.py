@@ -1,9 +1,10 @@
 import numpy as np
 
-def scalarMulRow(matrix,constant,R):
-    resM = np.array(matrix)
-    resM[R] = resM[R]*constant
-    print("row ",R," multiplied by ",constant)
+def scalarMulRow(matrix,scalar,R):
+    resM = matrix.copy()
+    resM[R] = resM[R]*scalar
+    #matrix = matrix[R]*scalar
+    print("row ",R," multiplied by ",scalar)
     return resM
 
 def interchange(matrix,R1,R2):
