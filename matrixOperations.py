@@ -3,7 +3,6 @@ import numpy as np
 def scalarMulRow(matrix,scalar,R):
     resM = matrix.copy()
     resM[R] = resM[R]*scalar
-    #matrix = matrix[R]*scalar
     print("row ",R," multiplied by ",scalar)
     return resM
 

@@ -22,14 +22,9 @@ options = {
 		"1" : mulRowConstant
 	}
 
-if __name__ == "__main__":
-	print("enter number of rows in matrix")
-	inNum = int(input())
-	currentLine = 1
-	matrix = None 
+def set_matrix(currentLine,):
 	rowList = []
-	previousMatrix = None
-	originalMatrix = None
+	inNum = 1
 	while inNum > 0:
 		print("please enter row" +str(currentLine) +"of a matrix, seperate with \',\'")
 		m_in = input()
@@ -40,14 +35,23 @@ if __name__ == "__main__":
 
 		currentLine += 1
 		inNum -= 1
-	
-	matrix = np.stack(rowList)
+	return np.stack(rowList)
+
+if __name__ == "__main__":
+	print("enter number of rows in matrix")
+	inNum = int(input())
+	currentLine = 1
+	matrix = None 
+	rowList = []
+	previousMatrix = None
+	originalMatrix = None
+
+	matrix = set_matrix(currentLine)
 	matrix = matrix.astype('float64')
 	originalMatrix = matrix.copy()
 	print("the matrix is:")
 	print(matrix)
-	print(matrix.dtype.name)
-	menu()
+	print("\n")
 
 	inNum = 0
 	while inNum != "-1":
