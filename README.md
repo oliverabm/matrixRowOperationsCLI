@@ -1,4 +1,4 @@
-# matrixOperationsCLI
+# matrixRowOperationsCLI
 A small command line interface to quickly do the three basic matrix operations on a matrix:
   - multiplying a row by a scalar
   - interchanging two rows
