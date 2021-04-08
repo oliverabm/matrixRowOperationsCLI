@@ -3,10 +3,11 @@ import matrixOperations as mops
 
 
 def menu():
-	print("*Type the number corresponding to the operation you want to perfrom *")
-	print("* 1 : Multiply a row with a scalar                                *")
-	print("* 2 : Interchange two rows                                        *")
-	print("* 3 : multiply a row with a scalar                                *")
+	print("* Type the number corresponding to the operation you want to perfrom *")
+	print("* 1 : Multiply a row with a scalar                                   *")
+	print("* 2 : Interchange two rows                                           *")
+	print("* 3 : Add a scalar times one row to another                          *")
+	print("*-1 : Exit                                                           *")
 
 
 def mul_row_scalar(m):
@@ -27,6 +28,18 @@ def interchange(m):
 	m = mops.interchange(m,row1,row2)
 	return m
 
+def add_scalar_times_row(m):
+	rows = m.shape[0]
+	print("Enter row (R1) from 0 to " +str(rows-1))
+	row1 = int(input())
+	print("Enter scalar to multiply R1 by")
+	scalar = int(input())
+	print("Enter row (R2) from 0 to " +str(rows-1))
+	row2 = int(input())
+	m = mops.add_scalar_times_row(m,scalar,row1,row2)
+	return m
+
+
 def create_matrix():
 	print("enter number of rows in matrix")
 	inNum = int(input())
@@ -46,7 +59,8 @@ def create_matrix():
 
 options = {
 		"1" : mul_row_scalar,
-		"2" : interchange
+		"2" : interchange,
+		"3" : add_scalar_times_row
 	}
 
 if __name__ == "__main__":
