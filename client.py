@@ -4,8 +4,8 @@ import matrixOperations as mops
 
 def menu():
 	print("*Type the number corresponding to the operation you want to perfrom *")
-	print("* 1 : multiply a row with a scalar                                *")
-	print("* 2 : multiply a row with a scalar                                *")
+	print("* 1 : Multiply a row with a scalar                                *")
+	print("* 2 : Interchange two rows                                        *")
 	print("* 3 : multiply a row with a scalar                                *")
 
 
@@ -18,13 +18,20 @@ def mul_row_scalar(m):
 	m = mops.scalar_mul_row(m,float(scalar),row)
 	return m
 
-options = {
-		"1" : mul_row_scalar
-	}
+def interchange(m):
+	rows = m.shape[0]
+	print("Enter first row from 0 to " +str(rows-1))
+	row1 = int(input())
+	print("Enter second row from 0 to " +str(rows-1))
+	row2 =  int(input())
+	m = mops.interchange(m,row1,row2)
+	return m
 
-def set_matrix(currentLine,):
+def create_matrix():
+	print("enter number of rows in matrix")
+	inNum = int(input())
+	currentLine = 1
 	rowList = []
-	inNum = 1
 	while inNum > 0:
 		print("please enter row" +str(currentLine) +"of a matrix, seperate with \',\'")
 		m_in = input()
@@ -37,16 +44,17 @@ def set_matrix(currentLine,):
 		inNum -= 1
 	return np.stack(rowList)
 
+options = {
+		"1" : mul_row_scalar,
+		"2" : interchange
+	}
+
 if __name__ == "__main__":
-	print("enter number of rows in matrix")
-	inNum = int(input())
-	currentLine = 1
 	matrix = None 
-	rowList = []
 	previousMatrix = None
 	originalMatrix = None
 
-	matrix = set_matrix(currentLine)
+	matrix = create_matrix()
 	matrix = matrix.astype('float64')
 	originalMatrix = matrix.copy()
 	print("the matrix is:")
