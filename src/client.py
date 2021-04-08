@@ -16,6 +16,7 @@ def mul_row_scalar(m):
 	row = int(input())
 	print("Enter scalar")
 	scalar = int(input())
+	print("row ",row," multiplied by ",scalar)
 	m = mops.scalar_mul_row(m,float(scalar),row)
 	return m
 
@@ -25,6 +26,7 @@ def interchange(m):
 	row1 = int(input())
 	print("Enter second row from 0 to " +str(rows-1))
 	row2 =  int(input())
+	print("row ",row1," swapped with ",row2)
 	m = mops.interchange(m,row1,row2)
 	return m
 
@@ -36,6 +38,7 @@ def add_scalar_times_row(m):
 	scalar = int(input())
 	print("Enter row (R2) from 0 to " +str(rows-1))
 	row2 = int(input())
+	print("row: ",row1," multiplied by ", scalar, " added to the ", row2, "row")
 	m = mops.add_scalar_times_row(m,scalar,row1,row2)
 	return m
 
