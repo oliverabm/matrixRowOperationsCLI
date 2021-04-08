@@ -2,15 +2,15 @@ import numpy as np
 import matrixOperations as mops
 
 
-def menu():
+def _menu():
 	print("* Type the number corresponding to the operation you want to perfrom *")
 	print("* 1 : Multiply a row with a scalar                                   *")
-	print("* 2 : Interchange two rows                                           *")
+	print("* 2 : interchange two rows                                           *")
 	print("* 3 : Add a scalar times one row to another                          *")
 	print("*-1 : Exit                                                           *")
 
 
-def mul_row_scalar(m):
+def _mul_row_scalar(m):
 	rows = m.shape[0]
 	print("Enter row from 0 to " +str(rows-1))
 	row = int(input())
@@ -20,7 +20,7 @@ def mul_row_scalar(m):
 	m = mops.scalar_mul_row(m,float(scalar),row)
 	return m
 
-def interchange(m):
+def _interchange(m):
 	rows = m.shape[0]
 	print("Enter first row from 0 to " +str(rows-1))
 	row1 = int(input())
@@ -30,7 +30,7 @@ def interchange(m):
 	m = mops.interchange(m,row1,row2)
 	return m
 
-def add_scalar_times_row(m):
+def _add_scalar_times_row(m):
 	rows = m.shape[0]
 	print("Enter row (R1) from 0 to " +str(rows-1))
 	row1 = int(input())
@@ -43,7 +43,7 @@ def add_scalar_times_row(m):
 	return m
 
 
-def create_matrix():
+def _create_matrix():
 	print("enter number of rows in matrix")
 	inNum = int(input())
 	currentLine = 1
@@ -61,9 +61,9 @@ def create_matrix():
 	return np.stack(rowList)
 
 options = {
-		"1" : mul_row_scalar,
-		"2" : interchange,
-		"3" : add_scalar_times_row
+		"1" : _mul_row_scalar,
+		"2" : _interchange,
+		"3" : _add_scalar_times_row
 	}
 
 if __name__ == "__main__":
@@ -71,7 +71,7 @@ if __name__ == "__main__":
 	previousMatrix = None
 	originalMatrix = None
 
-	matrix = create_matrix()
+	matrix = _create_matrix()
 	matrix = matrix.astype('float64')
 	originalMatrix = matrix.copy()
 	print("the matrix is:")
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 			previousMatrix = matrix.copy()
 			matrix = func(matrix)
 			print(matrix)
-		menu()
+		_menu()
 		inNum = input()
 
 
