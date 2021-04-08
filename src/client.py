@@ -4,20 +4,20 @@ import matrixOperations as mops
 
 def _menu():
 	print("* Type the number corresponding to the operation you want to perfrom *")
-	print("* 1 : Multiply a row with a scalar                                   *")
+	print("* 1 : Multiply a row with a num                                      *")
 	print("* 2 : interchange two rows                                           *")
-	print("* 3 : Add a scalar times one row to another                          *")
+	print("* 3 : Add a num times one row to another                             *")
 	print("*-1 : Exit                                                           *")
 
 
-def _mul_row_scalar(m):
+def _mul_row_num(m):
 	rows = m.shape[0]
 	print("Enter row from 0 to " +str(rows-1))
 	row = int(input())
-	print("Enter scalar")
-	scalar = int(input())
-	print("row ",row," multiplied by ",scalar)
-	m = mops.scalar_mul_row(m,float(scalar),row)
+	print("Enter num")
+	num = int(input())
+	print("row ",row," multiplied by ",num)
+	m = mops.num_mul_row(m,float(num),row)
 	return m
 
 def _interchange(m):
@@ -30,16 +30,16 @@ def _interchange(m):
 	m = mops.interchange(m,row1,row2)
 	return m
 
-def _add_scalar_times_row(m):
+def _add_num_times_row(m):
 	rows = m.shape[0]
 	print("Enter row (R1) from 0 to " +str(rows-1))
 	row1 = int(input())
-	print("Enter scalar to multiply R1 by")
-	scalar = int(input())
+	print("Enter num to multiply R1 by")
+	num = int(input())
 	print("Enter row (R2) from 0 to " +str(rows-1))
 	row2 = int(input())
-	print("row: ",row1," multiplied by ", scalar, " added to the ", row2, "row")
-	m = mops.add_scalar_times_row(m,scalar,row1,row2)
+	print("row: ",row1," multiplied by ", num, " added to the ", row2, "row")
+	m = mops.add_num_times_row(m,num,row1,row2)
 	return m
 
 
@@ -61,9 +61,9 @@ def _create_matrix():
 	return np.stack(rowList)
 
 options = {
-		"1" : _mul_row_scalar,
+		"1" : _mul_row_num,
 		"2" : _interchange,
-		"3" : _add_scalar_times_row
+		"3" : _add_num_times_row
 	}
 
 if __name__ == "__main__":
