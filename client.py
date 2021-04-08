@@ -4,22 +4,22 @@ import matrixOperations as mops
 
 def menu():
 	print("*Type the number corresponding to the operation you want to perfrom *")
-	print("* 1 : multiply a row with a constant                                *")
-	print("* 2 : multiply a row with a constant                                *")
-	print("* 3 : multiply a row with a constant                                *")
+	print("* 1 : multiply a row with a scalar                                *")
+	print("* 2 : multiply a row with a scalar                                *")
+	print("* 3 : multiply a row with a scalar                                *")
 
 
-def mulRowConstant(m):
+def mul_row_scalar(m):
 	rows = m.shape[0]
 	print("Enter row from 0 to " +str(rows-1))
 	row = int(input())
 	print("Enter scalar")
-	constant = int(input())
-	m = mops.scalarMulRow(m,float(constant),row)
+	scalar = int(input())
+	m = mops.scalar_mul_row(m,float(scalar),row)
 	return m
 
 options = {
-		"1" : mulRowConstant
+		"1" : mul_row_scalar
 	}
 
 def set_matrix(currentLine,):
@@ -57,6 +57,7 @@ if __name__ == "__main__":
 	while inNum != "-1":
 		func = options.get(inNum)
 		if func != None:
+			previousMatrix = matrix.copy()
 			matrix = func(matrix)
 			print(matrix)
 		menu()

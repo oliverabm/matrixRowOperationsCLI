@@ -1,6 +1,6 @@
 import numpy as np
 
-def scalarMulRow(matrix,scalar,R):
+def scalar_mul_row(matrix,scalar,R):
     resM = matrix.copy()
     resM[R] = resM[R]*scalar
     print("row ",R," multiplied by ",scalar)
@@ -14,18 +14,18 @@ def interchange(matrix,R1,R2):
     print("row ",R1," swapped with ",R2)
     return matrix
 
-def addConstantTimesRow(matrix,constant,constRow,affectedRow):
+def add_scalar_times_row(matrix,scalar,constRow,affectedRow):
     conM = np.array(matrix)
     resM = np.array(matrix)
-    rowForAddition = conM[constRow] * constant
+    rowForAddition = conM[constRow] * scalar
     resM[affectedRow] = resM[affectedRow] + rowForAddition
-    print("row: ",constRow," multiplied by ", constant, " added to the ", affectedRow, "row")
+    print("row: ",constRow," multiplied by ", scalar, " added to the ", affectedRow, "row")
     return resM
 
 if __name__ == "__main__":
     matrix = np.ones((2,2))
-    matrix = scalarMulRow(matrix,1,3)
+    matrix = scalar_mul_row(matrix,1,3)
     matrix = interchange(matrix,0,1)
     print(matrix)
-    matrix = addConstantTimesRow(matrix,3,0,1)
+    matrix = add_scalar_times_row(matrix,3,0,1)
     print(matrix)
