@@ -1,5 +1,5 @@
-# matrixOperationsCLI
-A small command line interface to quickly do the three basic matrix operations on a matrix:
+# matrixRowOperationsCLI
+A small command line interface to quickly do the three basic matrix operations using numpy matrices:
   - multiplying a row by a scalar
   - interchanging two rows
   - adding a row multiplied by a scalar to another row
