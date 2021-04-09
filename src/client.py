@@ -44,12 +44,12 @@ def _add_num_times_row(m):
 
 
 def _create_matrix():
-	print("enter number of rows in matrix")
+	print("enter number of rows in matrix (confirm with ENTER)")
 	inNum = int(input())
 	currentLine = 1
 	rowList = []
 	while inNum > 0:
-		print("please enter row" +str(currentLine) +"of a matrix, seperate with \',\'")
+		print("please enter row " +str(currentLine-1) +" of the matrix, seperate with \',\'")
 		m_in = input()
 		sSplit = m_in.split(',')
 		for n in sSplit:
